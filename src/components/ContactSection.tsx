@@ -7,28 +7,28 @@ export const ContactSection = () => {
     {
       icon: <FaPhone className="w-6 h-6" />,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
-      action: 'tel:+15551234567',
+      details: '03245922913',
+      action: 'tel:03245922913',
       actionText: 'Call Now'
     },
     {
       icon: <FaEnvelope className="w-6 h-6" />,
       title: 'Email Us',
-      details: 'sales@hardwarestore.com',
-      action: 'mailto:sales@hardwarestore.com',
+      details: 'jeejutt453@gmail.com',
+      action: 'mailto:jeejutt453@gmail.com',
       actionText: 'Send Email'
     },
     {
       icon: <FaMapMarkerAlt className="w-6 h-6" />,
       title: 'Visit Us',
-      details: '123 Hardware Street, Tool City, TC 12345',
-      action: 'https://maps.google.com',
+      details: 'House number 8 street 8 shabnum caluney kotlakhpat  lahore',
+      action: '#',
       actionText: 'Get Directions'
     },
     {
       icon: <FaClock className="w-6 h-6" />,
       title: 'Business Hours',
-      details: 'Mon-Sat: 8AM - 6PM',
+      details: 'Mon-Sat: 8AM - 10PM',
       subDetails: 'Sunday: Closed',
       action: '#',
       actionText: 'View Hours'
@@ -43,8 +43,8 @@ export const ContactSection = () => {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Need expert advice on tools or hardware? Our team is here to help you find
-            the perfect solution for your project.
+            Need expert advice on cleaning? Our team is here to help you find
+            the perfect cleaning solution for your project.
           </p>
         </div>
 

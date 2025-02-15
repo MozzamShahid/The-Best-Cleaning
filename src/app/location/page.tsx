@@ -1,19 +1,12 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { FaMapMarkerAlt, FaClock, FaPhone, FaEnvelope, FaParking, FaBus, FaWifi, FaWheelchair } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock, FaPhone, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 export default function Location() {
-  const facilities = [
-    { icon: <FaParking />, label: "Free Parking" },
-    { icon: <FaBus />, label: "Public Transport" },
-    { icon: <FaWifi />, label: "Free WiFi" },
-    { icon: <FaWheelchair />, label: "Wheelchair Access" },
-  ];
-
   const businessHours = [
-    { day: "Monday - Friday", hours: "8:00 AM - 6:00 PM" },
-    { day: "Saturday", hours: "9:00 AM - 4:00 PM" },
-    { day: "Sunday", hours: "Closed" },
+    { day: "Monday - Saturday", hours: "24 Hours" },
+    { day: "Sunday", hours: "24 Hours" },
+    { day: "Emergency Service", hours: "Available" },
   ];
 
   return (
@@ -21,96 +14,95 @@ export default function Location() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-blue-800/90 z-10" />
+        <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10" />
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-              Visit Our Store
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">
+              Contact Us
             </h1>
-            <p className="text-xl text-gray-600">
-              Conveniently located in the heart of the city, our store offers easy access and a wide range of hardware solutions.
+            <p className="text-xl text-gray-100">
+              Professional cleaning services available 24/7 across Lahore
             </p>
           </div>
         </div>
       </section>
 
-      {/* Map and Contact Info Section */}
+      {/* Contact Info Section */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Map */}
-            <div className="rounded-3xl overflow-hidden shadow-2xl h-[600px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019112345678!2d-122.419415484681!3d37.77492927975933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2s0x0!5e0!3m2!1sen!2sus!4v1610000000000!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-              ></iframe>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            {/* Address */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
+                  <FaMapMarkerAlt className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
+                  <p className="text-lg text-gray-600">
+                    Lahore, Pakistan<br />
+                    Service available in all areas
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Contact Information */}
-            <div className="space-y-12">
-              {/* Address */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="flex items-start gap-4">
+            {/* Business Hours */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
+                  <FaClock className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Service Hours</h3>
+                  <div className="space-y-3">
+                    {businessHours.map((schedule, index) => (
+                      <div key={index} className="flex justify-between items-center border-b border-gray-100 pb-3">
+                        <span className="text-lg text-gray-600">{schedule.day}</span>
+                        <span className="text-lg font-medium text-blue-600">{schedule.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Details */}
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex flex-col items-center text-center gap-4">
                   <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
-                    <FaMapMarkerAlt className="w-6 h-6" />
+                    <FaPhone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
-                    <p className="text-lg text-gray-600">
-                      123 Hardware Street<br />
-                      Tool City, TC 12345<br />
-                      United States
-                    </p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
+                    <p className="text-lg text-blue-600">+92 324 5922913</p>
                   </div>
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="flex items-start gap-4">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex flex-col items-center text-center gap-4">
                   <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
-                    <FaClock className="w-6 h-6" />
+                    <FaWhatsapp className="w-6 h-6" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Business Hours</h3>
-                    <div className="space-y-3">
-                      {businessHours.map((schedule, index) => (
-                        <div key={index} className="flex justify-between items-center">
-                          <span className="text-lg text-gray-600">{schedule.day}</span>
-                          <span className="text-lg font-medium text-gray-900">{schedule.hours}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">WhatsApp</h3>
+                    <p className="text-lg text-blue-600">+92 324 5922913</p>
                   </div>
                 </div>
               </div>
 
-              {/* Contact Details */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
-                      <FaPhone className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900">Phone</h3>
-                      <p className="text-lg text-gray-600">(555) 123-4567</p>
-                    </div>
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
+                    <FaEnvelope className="w-6 h-6" />
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="p-4 bg-blue-50 text-blue-600 rounded-xl">
-                      <FaEnvelope className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900">Email</h3>
-                      <p className="text-lg text-gray-600">info@hardwarestore.com</p>
-                    </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
+                    <p className="text-lg text-blue-600">jeejutt453@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -119,20 +111,31 @@ export default function Location() {
         </div>
       </section>
 
-      {/* Facilities Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Store Facilities</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {facilities.map((facility, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md text-center">
-                <div className="text-blue-600 text-2xl mb-3 flex justify-center">
-                  {facility.icon}
-                </div>
-                <span className="text-gray-900 font-medium">{facility.label}</span>
-              </div>
-            ))}
-          </div>
+      {/* Credits Section */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-600">
+            Built by{' '}
+            <a 
+              href="https://maps.app.goo.gl/TChr3Us6XFfqZ2xc9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Speed Net Printing
+            </a>
+          </p>
+          <p className="text-gray-600 mt-2">
+            Developed by{' '}
+            <a 
+              href="https://www.linkedin.com/in/mozzam-shahid/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Mozzam
+            </a>
+          </p>
         </div>
       </section>
 

@@ -1,93 +1,83 @@
-import Image from 'next/image';
-import { FaTools, FaWrench, FaHardHat } from 'react-icons/fa';
-import { MdHandyman } from 'react-icons/md';
+import { MdCleaningServices, MdKitchen, MdMeetingRoom, MdWaterDrop, MdLocalCarWash } from 'react-icons/md';
+import { GiVacuumCleaner, GiSofa, GiRollingSuitcase } from 'react-icons/gi';
+import { FaSolarPanel, FaWindowMaximize } from 'react-icons/fa';
+import { WiSunrise } from 'react-icons/wi';
 
 interface Service {
   title: string;
-  description: string;
-  image: string;
   icon: React.ReactNode;
 }
 
 const services: Service[] = [
   {
-    title: 'Power Tools',
-    description: 'Professional-grade power tools for construction, woodworking, and home improvement projects.',
-    image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=500&h=300&fit=crop',
-    icon: <FaTools className="w-6 h-6" />
+    title: 'Deep Cleaning',
+    icon: <MdCleaningServices className="w-8 h-8" />
   },
   {
-    title: 'Hand Tools',
-    description: 'High-quality hand tools designed for precision, durability, and comfortable handling.',
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=500&h=300&fit=crop',
-    icon: <FaWrench className="w-6 h-6" />
+    title: 'Kitchen Cleaning',
+    icon: <MdKitchen className="w-8 h-8" />
   },
   {
-    title: 'Safety Equipment',
-    description: 'Complete range of safety gear and equipment to ensure workplace protection.',
-    image: 'https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=500&h=300&fit=crop',
-    icon: <FaHardHat className="w-6 h-6" />
+    title: 'Restaurant Cleaning',
+    icon: <GiVacuumCleaner className="w-8 h-8" />
   },
   {
-    title: 'Hardware Supplies',
-    description: 'Extensive selection of hardware supplies for contractors, builders, and DIY enthusiasts.',
-    image: 'https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=500&h=300&fit=crop',
-    icon: <MdHandyman className="w-6 h-6" />
+    title: 'Office Cleaning',
+    icon: <MdMeetingRoom className="w-8 h-8" />
   },
+  {
+    title: 'Water Tank Cleaning',
+    icon: <MdWaterDrop className="w-8 h-8" />
+  },
+  {
+    title: 'Solar Panels Cleaning',
+    icon: <FaSolarPanel className="w-8 h-8" />
+  },
+  {
+    title: 'Windows and Glass',
+    icon: <FaWindowMaximize className="w-8 h-8" />
+  },
+  {
+    title: 'Washroom Cleaning',
+    icon: <WiSunrise className="w-8 h-8" />
+  },
+  {
+    title: 'Furniture & Sofa',
+    icon: <GiSofa className="w-8 h-8" />
+  },
+  {
+    title: 'Curtains & Carpets',
+    icon: <GiRollingSuitcase className="w-8 h-8" />
+  },
+  {
+    title: 'Car Wash & Detailing',
+    icon: <MdLocalCarWash className="w-8 h-8" />
+  }
 ];
 
 export const Services = () => {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Hardware Solutions
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Our Cleaning Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Providing quality tools and equipment for professionals and DIY enthusiasts.
-            Every project deserves the right tools.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+              className="bg-white p-6 rounded-lg hover:bg-blue-50 transition-colors duration-300 cursor-pointer"
             >
-              <div className="relative h-56">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-lg">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {service.title}
-                  </h3>
+              <div className="flex flex-col items-center">
+                <div className="text-blue-600 mb-3">
+                  {service.icon}
                 </div>
-                <p className="text-gray-600 mb-6">
-                  {service.description}
-                </p>
-                <button className="flex items-center text-blue-600 hover:text-blue-700 font-medium group">
-                  View Details
-                  <svg 
-                    className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                <h3 className="text-sm font-medium text-gray-900 text-center">
+                  {service.title}
+                </h3>
               </div>
             </div>
           ))}

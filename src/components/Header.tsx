@@ -1,7 +1,7 @@
 'use client';  // Add this for client-side interactivity
-
+import Image from "next/image"
 import { useState, useEffect } from 'react';
-import { Logo } from './Logo';
+import mylogo from '../Images/thebestlogo.png';
 import Link from 'next/link';  // Use Next.js Link
 
 export const Header = () => {
@@ -33,7 +33,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center space-x-2">
-            <Logo />
+            <Image src={mylogo} className="w-28" alt="Logo" />
             <div className={`h-8 w-px ${isScrolled ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
           </div>
           
@@ -63,10 +63,10 @@ export const Header = () => {
               px-6 py-2.5 rounded-lg font-medium transition-all duration-200
               ${isScrolled 
                 ? 'bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm' 
-                : 'bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg'
+                : 'bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg'
               }
             `}>
-              Contact Us
+              +92 324 5922913
             </button>
           </div>
 
@@ -101,8 +101,8 @@ export const Header = () => {
               </li>
             ))}
             <li className="px-4 py-3">
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-colors duration-200 font-medium">
-                Contact Us
+              <button className="w-full bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-lg transition-colors duration-200 font-medium">
+              +92-324-5922913
               </button>
             </li>
           </ul>
